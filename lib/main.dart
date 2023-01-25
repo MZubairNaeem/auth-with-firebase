@@ -1,8 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:moments/resources/colors.dart';
 import 'package:moments/screens/credentials.dart';
-
 import 'firebase_options.dart';
 
 Future<void> main() async{
@@ -20,10 +21,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.pink,
+        fontFamily: GoogleFonts.varelaRound().fontFamily,
+      ),
       home: Credentials(),
     );
   }
 }
-
-

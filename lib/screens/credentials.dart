@@ -47,19 +47,32 @@ class Credentials extends StatelessWidget {
     return FlutterLogin(
       title: 'MOMENTS',
       theme: LoginTheme(
+
+        //providerButtonPadding: EdgeInsets.all( 25),
         pageColorDark: AppColors().gradiant1,
         pageColorLight: AppColors().gradiant2,
-        errorColor: AppColors().primaryColor,
+        errorColor: Colors.red,
         accentColor: AppColors().textColor,
         titleStyle: TextStyle(fontWeight: FontWeight.bold),
         primaryColor: AppColors().textColor,
+        inputTheme: InputDecorationTheme(
+          filled: true,
+          iconColor: AppColors().primaryColor,
+          prefixIconColor: AppColors().primaryColor,
+          prefixStyle: TextStyle(fontSize: 32),
+          suffixIconColor: AppColors().primaryColor,
+          suffixStyle: TextStyle(fontSize: 32)
+        ),
+        buttonTheme: LoginButtonTheme(
+
+        ),
       ),
       logo: AssetImage('assets/credential_icon.png'),
       onLogin: _authUser,
       onSignup: _signupUser,
       onSubmitAnimationCompleted: () {
         Navigator.of(context).pushReplacement(MaterialPageRoute(
-          builder: (context) => Home(),
+          builder: (context) => Home(title: '',),
         ));
       },
       onRecoverPassword: _recoverPassword,
